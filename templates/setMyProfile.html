@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="shortcut icon" type="image/svg" href="../static/escrow.svg">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="../static/setMyProfile.css">
+    <title>Smart Home</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="forms">
+            <div class="form setMyProfile">
+                <span class="title">Edit Profile</span>
+
+                <form action="/setMyProfile" method="POST">
+                    <div class="input-field">
+                        <input type="text" placeholder="Enter your name" name="name" required>
+                        <i class="uil uil-user"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" placeholder="Enter your email" name="email" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                        <input type="text" name="initData" id="initData" hidden>
+                    <div class="input-field button">
+                        <input type="submit" value="UPDATE">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        Telegram.WebApp.ready()
+        Telegram.WebApp.expand()
+        initData = document.getElementById("initData");
+        initData.value = window.Telegram.WebApp.initData;
+    </script>
+</body>
+
+</html>
